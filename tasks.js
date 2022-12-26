@@ -77,6 +77,9 @@ function hello(){
  *
  * @returns {void}
  */
+/**
+ * help users to check available command
+ */
 function help(){
   console.log('try using these command :\n' ,'hello\n','quit or exit\n','help')
 }
