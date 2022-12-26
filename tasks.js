@@ -79,10 +79,11 @@ function hello(t) {
  */
 function help() {
   console.log(
-    "try using this command :\n",
-    "hello\n",
-    "quit or exit\n",
-    "help"
+    "Command lines:\n",
+    "hello:returns hello! \n",
+    "hello+text:returns hello and any text you write next to it!\n",
+    "quit or exit: quits the application\n",
+    "help:help you understand all the commands"
   );
 }
 
