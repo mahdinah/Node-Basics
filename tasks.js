@@ -34,12 +34,13 @@ function startApp(name){
  * @returns {void}
  */
 function onDataReceived(text) {
-  if (text === 'quit\n'||'exit\n') {
+  if (text === 'quit\n'||text==='exit\n') {
     quit();
   }
   else if(text === 'hello\n'){
     hello();
   }
+
   else{
     unknownCommand(text);
   }
@@ -73,6 +74,7 @@ function hello(){
  *
  * @returns {void}
  */
+
 function quit(){
   console.log('Quitting now, goodbye!')
   process.exit();
