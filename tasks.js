@@ -98,5 +98,10 @@ function quit() {
   process.exit();
 }
 
+var tasks = [
+  "Task 1: Learn Node basics",
+  "Task 2: Edit node.js task",
+  "Task 3: Create Help Function",
+];
 // The following line starts the application
 startApp("Mahdi Halloum")
