@@ -39,7 +39,14 @@ function onDataReceived(text) {
     hello(text);
   } else if (text === "help\n") {
     help();
-  } else {
+  } else if (createArray[0] === 'add') {
+    add(text, tasks);
+  } 
+  else if (text === 'add\n') {
+    error();
+  } 
+
+  else {
     unknownCommand(text);
   }
 }
@@ -103,5 +110,14 @@ var tasks = [
   "Task 2: Edit node.js task",
   "Task 3: Create Help Function",
 ];
+function add(item, tasks) {
+  var itemN = item.substr(3, item.length);
+  //console.log("\nitemN: "+itemN);
+  tasks.push(itemN.trim());
+  console.log("\n----Task created successfully----\n'write list to list all your tasks' \n")
+}
+function error() {
+  console.log("\n----ERROR TRY AGAIN----\n");
+}
 // The following line starts the application
 startApp("Mahdi Halloum")
