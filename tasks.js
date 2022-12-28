@@ -93,6 +93,8 @@ function help() {
     "hello:returns hello! \n",
     "hello+text:returns hello and any text you write next to it!\n",
     "quit or exit: quits the application\n",
+    "add:allows to add a task",
+    "remove || remove n:allows to remove the last task || remove a specified task",
     "help:help you understand all the commands"
   );
 }
