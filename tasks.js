@@ -39,7 +39,10 @@ function onDataReceived(text) {
     hello(text);
   } else if (text === "help\n") {
     help();
-  } else if (createArray[0] === 'add') {
+  } else if(createArray[0]==="remove\n"|| "remove"){
+    remove(text,tasks)
+  }
+   else if (createArray[0] === 'add') {
     add(text, tasks);
   } 
   else if (text === 'add\n') {
@@ -94,6 +97,24 @@ function help() {
   );
 }
 
+/**
+ * Exits the application
+ *
+ * @returns {void}
+ */
+function remove(item, tasks) {
+  var arr = item.split(" ");
+  if (item === "remove\n") {
+    var task = tasks.pop();
+    console.log("----" + task + " removed, check your list----\n");
+  } else if (arr[1] > tasks.length) {
+    console.log("your list has only " + tasks.length + " tasks");
+    error();
+  } else {
+    task = tasks.splice(arr[1] - 1, 1);
+    console.log("----item " + arr[1] + " removed, check your list---\n");
+  }
+}
 /**
  * Exits the application
  *
