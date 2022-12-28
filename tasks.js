@@ -110,7 +110,7 @@ function remove(item, tasks) {
     var task = tasks.pop();
     console.log("----" + task + " removed, check your list----\n");
   } else if (arr[1] > tasks.length) {
-    console.log("your list has only " + tasks.length + " tasks");
+    console.log("You enter a wrong number, your list has only " + tasks.length + " tasks");
     error();
   } else {
     task = tasks.splice(arr[1] - 1, 1);
