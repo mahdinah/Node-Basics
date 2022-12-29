@@ -105,9 +105,7 @@ function help() {
     "add:allows to add a task.\n",
     "remove || remove n:allows to remove the last task || remove a specified task.\n",
     "help:help you understand all the commands\n",
-    "check:add a done/undone (checked/unchecked) feature to our task list.\n",
-    "uncheck:does the opposite of `check`.",
-    "help:help you understand all the commands.\n",
+   
   );
 }
 
