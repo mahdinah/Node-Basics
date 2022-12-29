@@ -1,0 +1,18 @@
+[
+  {
+    "task": "task 1:Learn Node basics",
+    "done": true
+  },
+  {
+    "task": "task 2:Edit hello and Some commands",
+    "done": false
+  },
+  {
+    "task": "task 3:Learn some functions",
+    "done": false
+  },
+  {
+    "task": "task 4:Finish tasks",
+    "done": false
+  }
+]
