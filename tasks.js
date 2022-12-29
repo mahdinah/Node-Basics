@@ -46,13 +46,18 @@ function onDataReceived(text) {
    else if (createArray[0] === 'add') {
     add(text, tasks);
   } 
-  else if (text === 'add\n' || text==='edit\n') {
+  else if (text === 'add\n' || text==='edit\n' || text==='check\n' || text==='uncheck\n') {
     error();
   }
   else if (createArray[0] === 'edit') {
     edit(text, tasks);
   } 
-
+  else if (createArray[0] === 'check') {
+    check(text,tasks);
+  }
+  else if (createArray[0] === 'uncheck') {
+    uncheck(text,tasks);
+  }
   else {
     unknownCommand(text);
   }
@@ -96,10 +101,13 @@ function help() {
     "Command lines:\n",
     "hello:returns hello! \n",
     "hello+text:returns hello and any text you write next to it!\n",
-    "quit or exit: quits the application\n",
-    "add:allows to add a task\n",
-    "remove || remove n:allows to remove the last task || remove a specified task\n",
-    "help:help you understand all the commands\n"
+    "quit or exit: quits the application.\n",
+    "add:allows to add a task.\n",
+    "remove || remove n:allows to remove the last task || remove a specified task.\n",
+    "help:help you understand all the commands\n",
+    "check:add a done/undone (checked/unchecked) feature to our task list.\n",
+    "uncheck:does the opposite of `check`.",
+    "help:help you understand all the commands.\n",
   );
 }
 
@@ -119,6 +127,7 @@ var tasks = [
   "Task 1: Learn Node basics",
   "Task 2: Edit node.js task",
   "Task 3: Create Help Function",
+  "Task 4: How to check and uncheck",
 ];
 function add(item, tasks) {
   var itemN = item.substr(3, item.length);
@@ -160,6 +169,28 @@ function edit(item, tasks) {
 //  *
 //  * @returns {void}
 //  */
+function check (item,tasks){
+  //console.log(tasks[1]+"[✓]");
+var arr=item.split(" ");
+if ( arr[1]<tasks.length){
+  var reserve=tasks[arr[1]-1];
+  var task=tasks.splice(arr[1]-1,1,reserve+"[✓]");
+ console.log("----some tasks are done, please check your list----");
+}else{
+  console.log(tasks[arr[1]]);
+}
+}
+function uncheck(item, tasks) {
+  var arr = item.split(" ");
+  if (arr[1] < tasks.length) {
+    var reserve = tasks[arr[1] - 1];
+    var task = tasks.splice(arr[1] - 1, 1, reserve.replace("[✓]", ""));
+    console.log("----task"+task+" unmarked----");
+  } else {
+    console.log("----invalid task number----");
+  }
+}
+
 
 function error() {
   console.log("\n----ERROR TRY AGAIN----\n");
