@@ -39,14 +39,18 @@ function onDataReceived(text) {
     hello(text);
   } else if (text === "help\n") {
     help();
-  } else if(createArray[0]==="remove\n"|| "remove"){
-    remove(text,tasks)
-  }
+  } 
+  // else if(createArray[0]==="remove\n"|| "remove"){
+  //   remove(text,tasks)
+  // }
    else if (createArray[0] === 'add') {
     add(text, tasks);
   } 
-  else if (text === 'add\n') {
+  else if (text === 'add\n' || text==='edit\n') {
     error();
+  }
+  else if (createArray[0] === 'edit') {
+    edit(text, tasks);
   } 
 
   else {
@@ -93,9 +97,9 @@ function help() {
     "hello:returns hello! \n",
     "hello+text:returns hello and any text you write next to it!\n",
     "quit or exit: quits the application\n",
-    "add:allows to add a task",
-    "remove || remove n:allows to remove the last task || remove a specified task",
-    "help:help you understand all the commands"
+    "add:allows to add a task\n",
+    "remove || remove n:allows to remove the last task || remove a specified task\n",
+    "help:help you understand all the commands\n"
   );
 }
 
@@ -104,24 +108,7 @@ function help() {
  *
  * @returns {void}
  */
-function remove(item, tasks) {
-  var arr = item.split(" ");
-  if (item === "remove\n") {
-    var task = tasks.pop();
-    console.log("----" + task + " removed, check your list----\n");
-  } else if (arr[1] > tasks.length) {
-    console.log("You enter a wrong number, your list has only " + tasks.length + " tasks");
-    error();
-  } else {
-    task = tasks.splice(arr[1] - 1, 1);
-    console.log("----item " + arr[1] + " removed, check your list---\n");
-  }
-}
-/**
- * Exits the application
- *
- * @returns {void}
- */
+
 
 function quit() {
   console.log("Quitting now, goodbye!");
@@ -139,6 +126,41 @@ function add(item, tasks) {
   tasks.push(itemN.trim());
   console.log("\n----Task created successfully----\n'write list to list all your tasks' \n")
 }
+function edit(item, tasks) {
+  var arr = item.split(" ");
+  if (arr[0] === 'edit' && arr[1] < tasks.length) {
+    var task = tasks.splice(arr[1] - 1, 1, arr[2]);
+    console.log("----the task number " + arr[1] + " has changed, check you list----");
+  } else {
+    task = tasks.splice(tasks.length - 1, 1, arr[1]);
+    console.log("----the last task has changed, check you list----");
+  }
+
+}
+// /**
+//  * Exits the application
+//  *
+//  * @returns {void}
+//  */
+// function remove(item, tasks) {
+//   var arr = item.split(" ");
+//   if (item === "remove\n") {
+//     var task = tasks.pop();
+//     console.log("----" + task + " removed, check your list----\n");
+//   } else if (arr[1] > tasks.length) {
+//     console.log("You enter a wrong number, your list has only " + tasks.length + " tasks");
+//     error();
+//   } else {
+//     task = tasks.splice(arr[1] - 1, 1);
+//     console.log("----item " + arr[1] + " removed, check your list---\n");
+//   }
+// }
+// /**
+//  * Exits the application
+//  *
+//  * @returns {void}
+//  */
+
 function error() {
   console.log("\n----ERROR TRY AGAIN----\n");
 }
